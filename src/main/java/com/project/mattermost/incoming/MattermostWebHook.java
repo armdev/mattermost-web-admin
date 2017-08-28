@@ -52,8 +52,7 @@ public class MattermostWebHook extends HttpServlet {
                 System.out.println("n");
 
                 String[] paramValues = request.getParameterValues(paramName);
-                for (int i = 0; i < paramValues.length; i++) {
-                    String paramValue = paramValues[i];
+                for (String paramValue : paramValues) {
                     System.out.println("t " + paramValue);
                     System.out.println("n");
                 }
@@ -112,8 +111,8 @@ public class MattermostWebHook extends HttpServlet {
             mattermostRequest.setIncomingText("This is response number " + System.currentTimeMillis());
 
             incomingDAO.saveMessage(mattermostRequest);
-            SendToMattermostBean mattermostBean = new SendToMattermostBean();
-            mattermostBean.sendBackToMattermost(mattermostRequest);
+           // SendToMattermostBean mattermostBean = new SendToMattermostBean();
+           // mattermostBean.sendBackToMattermost(mattermostRequest);
         } catch (Exception ex) {
         }
     }
